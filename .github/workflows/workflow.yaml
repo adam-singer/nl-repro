@@ -14,5 +14,18 @@ jobs:
           zstd --decompress $HOME/buck.zst
           chmod +x $HOME/buck
 
+      - uses: cachix/install-nix-action@v24
+      - run: df -h
+      - name: build nativelink
+        run: |
+          nix build --out-link $HOME/nativelink github:TraceMachina/nativelink/v0.5.1
+      - name: start nativelink
+        uses: JarvusInnovations/background-action@v1
+        with:
+          run: |
+            $HOME/nativelink/bin/nativelink nativelink_config.json &
+          wait-for: 30s
+          wait-on: |
+            tcp:127.0.0.1:50061
       - name: Build
         run: $HOME/buck build ...
