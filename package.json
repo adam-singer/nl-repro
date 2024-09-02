@@ -1,0 +1,247 @@
+{
+  "name": "web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start_comment": "TSC_COMPILE_ON_ERROR=true is for avoiding CRA showing one error only: https://stackoverflow.com/a/57226138/2544629",
+    "start": "TSC_COMPILE_ON_ERROR=true DONT_CLEAR_CONSOLE=1 node scripts/start.js",
+    "start:mock": "REACT_APP_BACKEND_SOURCE=mock TSC_COMPILE_ON_ERROR=true DONT_CLEAR_CONSOLE=1 node scripts/start.js",
+    "start:clear": "TSC_COMPILE_ON_ERROR=true node scripts/start.js",
+    "build": "node scripts/build.js",
+    "test": "node scripts/test.js",
+    "storybook": "start-storybook -p 6006 -s ./public",
+    "storybook:debug": "start-storybook -p 6006 -s ./public --debug-webpack",
+    "build-storybook": "build-storybook",
+    "pretty-generated-files": "yarn prettier --write 'src/api/generated/**/*.{js,jsx,ts,tsx,json,css}'",
+    "fix": "yarn eslint --fix 'src/**/*.{js,jsx,ts,tsx}'",
+    "fix-svgs": "yarn svgo src/img/**/*.svg && git grep -l 'BackgroundImage\"' | xargs sed -i '' -e 's/BackgroundImage\"/BackgroundImageFix\"/g'"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css}": [
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+    "@babel/core": "^7.23.6",
+    "@reduxjs/toolkit": "^1.4.0",
+    "@svgr/webpack": "4.3.3",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/classnames": "2.2.10",
+    "@types/escape-string-regexp": "0.0.32",
+    "@types/google-map-react": "^2.1.5",
+    "@types/howler": "^2.2.1",
+    "@types/object-hash": "^1.3.4",
+    "@types/react-autosuggest": "9.3.4",
+    "@types/react-modal": "3.1.2",
+    "@types/react-table": "6.8.6",
+    "@types/simple-peer": "^9.11.4",
+    "axios": "^0.19.2",
+    "babel-jest": "^26.3.0",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-named-asset-import": "^0.3.6",
+    "babel-preset-react-app": "^9.1.2",
+    "camelcase": "^5.3.1",
+    "case-sensitive-paths-webpack-plugin": "2.3.0",
+    "circular-dependency-plugin": "^4",
+    "classnames": "2.2.6",
+    "connected-react-router": "^6.8.0",
+    "crypto-js": "^4.0.0",
+    "css-loader": "3.4.2",
+    "date-fns": "^2.16.1",
+    "dotenv": "8.2.0",
+    "dotenv-expand": "5.1.0",
+    "escape-string-regexp": "^1.0.5",
+    "eslint": "^7.9.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.1.2",
+    "file-loader": "4.3.0",
+    "firebase": "^9.8.3",
+    "fs-extra": "^8.1.0",
+    "google-map-react": "^2.1.10",
+    "history": "^4.10.1",
+    "howler": "^2.2.0",
+    "html-webpack-plugin": "4.0.0-beta.11",
+    "identity-obj-proxy": "3.0.0",
+    "immer": "^7.0.3",
+    "jest": "24.9.0",
+    "jest-environment-jsdom-fourteen": "1.0.1",
+    "jest-resolve": "24.9.0",
+    "jest-watch-typeahead": "0.4.2",
+    "memoize-one": "^5.1.1",
+    "mini-css-extract-plugin": "0.9.0",
+    "object-hash": "^2.1.1",
+    "optimize-css-assets-webpack-plugin": "5.0.3",
+    "pnp-webpack-plugin": "1.6.4",
+    "postcss-flexbugs-fixes": "4.1.0",
+    "postcss-import": "^12.0.1",
+    "postcss-loader": "3.0.0",
+    "postcss-mixins": "^6.2.3",
+    "postcss-normalize": "8.0.1",
+    "postcss-preset-env": "6.7.0",
+    "postcss-safe-parser": "4.0.1",
+    "query-string": "^6.13.2",
+    "ramda": "^0.27.2",
+    "ramda-adjunct": "^2.26.0",
+    "react": "~16.13.1",
+    "react-app-polyfill": "^1.0.6",
+    "react-aria-menubutton": "^7.0.2",
+    "react-autosuggest": "9.3.4",
+    "react-contexify": "^5.0.0",
+    "react-dev-utils": "^10.2.1",
+    "react-dom": "~16.13.1",
+    "react-helmet-async": "~1.0.2",
+    "react-icons": "^4.7.1",
+    "react-minimal-pie-chart": "^8.4.0",
+    "react-modal": "3.3.2",
+    "react-redux": "~7.1.3",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
+    "react-table": "6.8.6",
+    "redux": "^4.0.5",
+    "redux-batched-actions": "^0.5.0",
+    "redux-devtools-extension": "^2.13.8",
+    "resolve": "1.15.0",
+    "resolve-url-loader": "3.1.1",
+    "sass-loader": "8.0.2",
+    "seedrandom": "^3.0.5",
+    "semver": "6.3.0",
+    "simple-peer": "^9.11.1",
+    "style-loader": "0.23.1",
+    "svgo": "^1.3.2",
+    "terser-webpack-plugin": "2.3.5",
+    "three": "^0.136.0",
+    "three-orbit-controls": "^82.1.0",
+    "troika-three-text": "^0.45.0",
+    "ts-pnp": "1.1.6",
+    "url-loader": "2.3.0",
+    "webpack": "4.42.0",
+    "webpack-dev-server": "3.10.3",
+    "webpack-manifest-plugin": "2.2.0",
+    "workbox-webpack-plugin": "4.3.1"
+  },
+    "devDependencies": {
+    "@bazel/concatjs": "^5.8.1",
+    "@bazel/protractor": "^5.8.1",
+    "@bazel/rollup": "^5.8.1",
+    "@bazel/terser": "^5.8.1",
+    "@bazel/typescript": "^5.8.1",
+    "@types/jasmine": "3.3.15",
+    "@types/node": "^12.12.2",
+    "html-insert-assets": "^0.6.0",
+    "http-server": "^0.11.1",
+    "less": "^3.10.3",
+    "protractor": "^5.4.2",
+    "rollup": "1.20.3",
+    "stylus": "^0.54.7",
+    "terser": "4.3.1",
+    "@storybook/addon-actions": "^5.3.18",
+    "@storybook/addon-knobs": "^5.3.18",
+    "@storybook/addon-links": "^5.3.18",
+    "@storybook/addons": "^5.3.18",
+    "@storybook/react": "^5.3.18",
+    "@types/crypto-js": "^3.1.47",
+    "@types/history": "^4.7.5",
+    "@types/jest": "^24.0.0",
+    "@types/node": "^12.0.0",
+    "@types/query-string": "^6.3.0",
+    "@types/ramda": "^0.27.66",
+    "@types/react": "^16.9.0",
+    "@types/react-aria-menubutton": "^6.2.5",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-redux": "~7.1.9",
+    "@types/react-router": "^5.1.7",
+    "@types/react-router-dom": "^5.1.5",
+    "@types/seedrandom": "^2.4.28",
+    "@types/three": "^0.136.1",
+    "@typescript-eslint/eslint-plugin": "^4.1.1",
+    "@typescript-eslint/parser": "^4.1.1",
+    "csstype": "^3.0.3",
+    "emotion": "^10.0.27",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.0",
+    "prettier": "^2.0.5",
+    "type-zoo": "^3.4.1",
+    "typescript": "4.5.5"
+  },
+  "jest": {
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.d.ts"
+    ],
+    "setupFiles": [
+      "react-app-polyfill/jsdom"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setupTests.ts"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
+      "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
+    ],
+    "testEnvironment": "jest-environment-jsdom-fourteen",
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
+      "^.+\\.module\\.(css|sass|scss)$"
+    ],
+    "modulePaths": [],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web",
+      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
+      "^src/(.*)$": "<rootDir>/src/$1"
+    },
+    "moduleFileExtensions": [
+      "web.js",
+      "js",
+      "web.ts",
+      "ts",
+      "web.tsx",
+      "tsx",
+      "json",
+      "web.jsx",
+      "jsx",
+      "node"
+    ],
+    "watchPlugins": [
+      "jest-watch-typeahead/filename",
+      "jest-watch-typeahead/testname"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
+  },
+  "resolutions": {
+    "react-error-overlay": "6.0.9"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "isolatedModules": true,
+    "jsx": "react",
+    "baseUrl": ".",
+    "extendedDiagnostics": true,
+    //"listFiles": true,
+    "listEmittedFiles": true,
+    "paths": {
+	"~/*": [
+            "src/*",
+        ]
+    },
+    "rootDirs": [
+        "frontend/src"
+    ]
+  },
+  //,
+  // excluding Storybook here because the webpack dev server hot reloading doesn't work for it,
+  // i think because the modules from storybook aren't imported anywhere?
+  // this means that we won't get type-checking errors for storybook files, which is lame
+  // but you'll see errors if/when you start storybook, and it seems like my editor still sees the errors.
+  "include": [
+      "src/**/*",
+  ]
+  //"exclude": ["node_modules", "scripts", ".storybook"]
+}
