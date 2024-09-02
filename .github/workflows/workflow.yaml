@@ -1,0 +1,18 @@
+on:
+  push:
+
+
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: install buck
+        run: |
+          curl -Lo $HOME/buck.zst https://github.com/facebook/buck2/releases/download/2024-08-15/buck2-aarch64-apple-darwin.zst
+          zstd --decompress $HOME/buck.zst
+          chmod +x $HOME/buck
+
+      - name: Build
+        run: $HOME/buck build ...
