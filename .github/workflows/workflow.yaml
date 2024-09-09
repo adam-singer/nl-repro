@@ -27,9 +27,10 @@ jobs:
         uses: JarvusInnovations/background-action@v1
         with:
           run: |
+            ulimit -n 65000
             $HOME/nativelink/bin/nativelink nativelink_config.json &
           wait-for: 30s
           wait-on: |
             tcp:127.0.0.1:50061
       - name: Build
-        run: $HOME/buck build ...
+        run: ulimit -n 65000; $HOME/buck build ...
