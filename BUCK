@@ -28,7 +28,7 @@ genrule(
     ],
     out = "dist",
     cmd = """\
-yarn run tsc --outDir ${OUT} --rootDir . --declaration true
+ls -lh node_modules/ >&2 ; mkdir ${OUT}; echo done > ${OUT}/stamp
 """,
     default_outs = ["dist"],
 )
