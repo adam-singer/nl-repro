@@ -33,4 +33,4 @@ jobs:
           wait-on: |
             tcp:127.0.0.1:50061
       - name: Build
-        run: ulimit -n 65000; $HOME/buck build ...
+        run: ulimit -n 65000; $HOME/buck build -v 2,stderr --prefer-remote :tsc_generated
